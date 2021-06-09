@@ -1,6 +1,5 @@
 // This is the data we will be using to create our articles. Look at it, then proceed to line 93.
 // OPTIONAL: if you're feeling adventurous, try to make this data an export from a different module, and import it here.
-// You can read about ES6 modules here: https://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules
 const data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
@@ -86,9 +85,18 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'RANDOM TITLE',
+    date: 'JRANDOM DATE',
+    firstParagraph: `WALKHFAWFJHAWLFKJH  `,
+
+    secondParagraph: `WAFLWAFHJJKDFIQWUFHQWU `,
+
+    thirdParagraph: `QPWUDWQIHDOQ.`
   }
 ];
-
+// You can read about ES6 modules here: https://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
@@ -114,3 +122,49 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParagraph }) {
+  // Creating the elements
+  let article = document.createElement('div');
+  article.classList.add('article');
+
+  let header = document.createElement('h2');
+  header.textContent = title;
+
+  let dateParagraph = document.createElement('p');
+  dateParagraph.classList.add();
+  dateParagraph.textContent = date;
+
+  let p1 = document.createElement('p');
+  p1.textContent = firstParagraph;
+
+  let p2 = document.createElement('p');
+  p2.textContent = secondParagraph;
+
+  let p3 = document.createElement('p');
+  p3.textContent = thirdParagraph;
+
+  let span = document.createElement('span');
+  span.classList.add('expandButton');
+  span.textContent = '+';
+
+  span.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+  });
+
+  // Appending elements to div
+  article.appendChild(header);
+  article.appendChild(dateParagraph);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(span);
+  // console.log(article)
+
+  document.body.append(article);
+  return article;
+}
+
+data.forEach(element => {
+  articleMaker(element);
+});
