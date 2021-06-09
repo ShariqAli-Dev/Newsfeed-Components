@@ -141,13 +141,16 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
   span.classList.add('expandButton');
   span.textContent = '+';
 
+  span.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+  });
+
   // Appending elements to div
   article.appendChild(header);
   article.appendChild(dateParagraph);
   article.appendChild(p1);
   article.appendChild(p2);
   article.appendChild(p3);
-  // NEED TO DO P2 AN DP3
   article.appendChild(span);
   // console.log(article)
 
