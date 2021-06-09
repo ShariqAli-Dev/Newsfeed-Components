@@ -153,6 +153,7 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
   // console.log(article)
 
   document.body.append(article);
+  return article;
 }
 
 data.forEach(element => {

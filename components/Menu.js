@@ -60,7 +60,8 @@ function menuMaker(menuItems) {
   menuButton.addEventListener('click', () => {
     document.querySelector('div.menu').classList.toggle('menu--open');
   });
-  console.log(document.querySelector('div.menu'))
+  
+  return div;
 
 }
 
