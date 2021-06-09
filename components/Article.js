@@ -131,11 +131,9 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
 
   let p2 = document.createElement('p');
   p2.textContent = secondParagraph;
-  console.log(p2)
 
   let p3 = document.createElement('p');
   p3.textContent = thirdParagraph;
-  console.log(p3)
 
   let span = document.createElement('span');
   span.classList.add('expandButton');
