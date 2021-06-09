@@ -33,11 +33,13 @@ let menuItems = [
 */
 
 function menuMaker(menuItems) {
+  // Step 1
   let div = document.createElement('div');
   div.classList.add('menu');
 
   let ul = document.createElement('ul');
 
+  //Step 2
   let liArray = menuItems.map((item) => {
     let li = document.createElement('li');
     li.textContent = item;
@@ -49,6 +51,16 @@ function menuMaker(menuItems) {
     ul.appendChild(li);
   });
 
+  // Appending Elements 
+  div.appendChild(ul);
+  document.body.append(div);
+
+  // Event Listener To Menu Buttons
+  let menuButton = document.querySelector('.menu-button');
+  menuButton.addEventListener('click', () => {
+    document.querySelector('div.menu').classList.toggle('menu--open');
+  });
+  console.log(document.querySelector('div.menu'))
 
 }
 
